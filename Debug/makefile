@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := F103CBT_CAN_Master
+BUILD_ARTIFACT_NAME := F103CBT6_FOC_StepMotor_Master
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-F103CBT_CAN_Master.elf \
+F103CBT6_FOC_StepMotor_Master.elf \
 
 MAP_FILES += \
-F103CBT_CAN_Master.map \
+F103CBT6_FOC_StepMotor_Master.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-F103CBT_CAN_Master.list \
+F103CBT6_FOC_StepMotor_Master.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: F103CBT_CAN_Master.elf secondary-outputs
+main-build: F103CBT6_FOC_StepMotor_Master.elf secondary-outputs
 
 # Tool invocations
-F103CBT_CAN_Master.elf F103CBT_CAN_Master.map: $(OBJS) $(USER_OBJS) C:\Users\Admin\STM32CubeIDE\WS_F103CBT_FOC_StepMotor\F103CBT_CAN_Master\STM32F103CBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "F103CBT_CAN_Master.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Admin\STM32CubeIDE\WS_F103CBT_FOC_StepMotor\F103CBT_CAN_Master\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103CBT_CAN_Master.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+F103CBT6_FOC_StepMotor_Master.elf F103CBT6_FOC_StepMotor_Master.map: $(OBJS) $(USER_OBJS) C:\Users\Admin\STM32CubeIDE\WS_F103CBT_FOC_StepMotor\F103CBT6_FOC_StepMotor_Master\STM32F103CBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "F103CBT6_FOC_StepMotor_Master.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Admin\STM32CubeIDE\WS_F103CBT_FOC_StepMotor\F103CBT6_FOC_StepMotor_Master\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103CBT6_FOC_StepMotor_Master.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-F103CBT_CAN_Master.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "F103CBT_CAN_Master.list"
+F103CBT6_FOC_StepMotor_Master.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "F103CBT6_FOC_StepMotor_Master.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) F103CBT_CAN_Master.elf F103CBT_CAN_Master.list F103CBT_CAN_Master.map default.size.stdout
+	-$(RM) F103CBT6_FOC_StepMotor_Master.elf F103CBT6_FOC_StepMotor_Master.list F103CBT6_FOC_StepMotor_Master.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
